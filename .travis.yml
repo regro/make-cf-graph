@@ -1,6 +1,11 @@
 language: python
 sudo: false
 
+env:
+  global:
+    # Doctr deploy key for regro/cf-graph
+    - secure: "kUlHJeVjxNf/dt9XSSV+mgHH/9qp30zqABjwdeDe1Nbs5JPVCuLjD7yqL/Pln7jQdzGaTksEIUoFggGSKpXi1SCIZCOlzBax/wAIPTSvJEvUIzFs6Vws7J/mV147tyoNanOHvNw6CvicNhEuWD8HCWUw36kF93yhePwuFvNRWgIof8Ua54d3l2sGTCEHSbIiSvx6eF5WVsIKOWVyjKGu5H3y6HSoOGkFlezw+d9Y2owkx99KPKgDRFRt1BCuKxjhi8Yuv5HTKzCwDuQFC6Ak8uriVTQfMv44Tssl3SP4bDu+1x+zr7mMHTTOHqlYFSOlBtSkDAf6Cctfk903kFQI5TkiDLCSe86tlUiiC2qcFtgL4kll4SMQ5Eu1nmoCjQk457KUb5nkIpWFS5g/TxM8qy0CZF/KHsz2n9M76iDg8V2qS5xyb2hglt51HCGb94tnuR6oBPx+yDzBTGm38c4I8vpzT+8uDEr9bbjh7pO0hzssNCSc/XZld8ctcA5l1M+9Ib/W7QwqK0uelh2VEwpnd8JeMEXGw5jaT+1EA3FUnNTBBOGzJXK3SzG8LAJdQjChSl8vdDvuug2VN04433oZ+PhWv9YrPc+XBs++X/re4pYK7t1dXFBx7qlyMFRWTCYhiPhzgBwbeojuB/MuL6jGld9UqMews+NjdFIyY3j0W6o="
+
 python:
   - 3.6
 before_install:
@@ -23,6 +28,6 @@ install:
 
 script:
   - set -e
-  - python 01-make_graph.py
+  - python 00-find_feedstocks.py
   - conda install doctr
-  - doctr deploy . --built-docs . --deploy-branch-name master
+  - doctr deploy --built-docs . --deploy-repo regro/cf-graph --deploy-branch-name master .
