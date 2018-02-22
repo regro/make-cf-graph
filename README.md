@@ -1,1 +1,1 @@
-# make-cf-graph
+# Worker for running `01-make_graph.py`
