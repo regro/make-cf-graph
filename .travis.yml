@@ -9,4 +9,8 @@ env:
 python:
   - 3.6
 install:
+  - set -e
+  - git clone https://github.com/regro/cf-scripts.git
+script:
+  - cd cf-scripts
   - ./01.sh
