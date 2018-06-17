@@ -16,4 +16,4 @@ install:
   - export PATH=~/mc/bin:$PATH
   - cd cf-scripts
 script:
-  - xonsh 03.xsh
+  - xonsh 01.xsh
